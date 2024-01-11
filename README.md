@@ -12,7 +12,7 @@ Em cada diretório (`nodejs-api-users` e `nodejs-api-getusers`), execute o segui
 npm install
 ```
 
-## 2. Inicie os Microserviços
+### 2. Inicie os Microserviços
 
 Microserviço de Cadastro de Usuários
 
