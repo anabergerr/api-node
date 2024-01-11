@@ -34,10 +34,7 @@ O servidor estará disponível em `http://localhost:3002`.
 
 ## 🛠️ Detalhes da Implementação
 
-`nodejs-api-users: Microserviço de cadastro de usuários.
+`nodejs-api-users`: Microserviço de cadastro de usuários.
 `nodejs-api-getusers`: Microserviço de obtenção de usuários.
 
 O Axios foi utilizado para permitir a comunicação entre os dois microserviços, garantindo que o array de usuários seja atualizado em ambos os lados.
-
-
-
