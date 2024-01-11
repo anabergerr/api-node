@@ -1,0 +1,13 @@
+# Arquivos temporários
+node_modules/
+
+# Arquivos gerados durante a execução
+*.log
+*.pid
+*.lock
+
+# Arquivos específicos do ambiente de desenvolvimento
+.vscode/
+.DS_Store
+
+# Dependendo do seu ambiente, você pode querer adicionar mais entradas aqui.
