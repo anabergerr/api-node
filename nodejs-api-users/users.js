@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 app.use(express.json());
 
@@ -23,14 +23,12 @@ app.post('/users', (req, res) => {
 
   users.push(newUser);
 
-  console.log(`Novo usuário cadastrado: ${JSON.stringify(newUser)}`);
-
-  // Enviar a atualização do array para o microserviço de obtenção de usuários
-  axios.post('http://localhost:3002/updateUsers', { users });
+  // Comunicar com o microserviço de obtenção de usuários para manter os dados sincronizados
+  axios.post('http://localhost:3001/sync-users', { users });
 
   return res.status(201).json(newUser);
 });
 
 app.listen(port, () => {
-  console.log(`Servidor de cadastro de usuários rodando em http://localhost:${port}`);
+  console.log(`Microserviço de Cadastro de Usuários rodando em http://localhost:${port}`);
 });

@@ -1,26 +1,21 @@
 const express = require('express');
-const axios = require('axios');
-
 const app = express();
-const port = 3002;
+const port = 3001;
 
 app.use(express.json());
 
-let users = [];
+let syncedUsers = [];
 
-app.get('/users', (req, res) => {
-  console.log('Obtendo usuários:', users);
-
-  return res.status(200).json(users);
+app.post('/sync-users', (req, res) => {
+  const { users } = req.body;
+  syncedUsers = users;
+  res.status(200).send('Usuários sincronizados com sucesso');
 });
 
-// Rota para receber a atualização do array de usuários
-app.post('/updateUsers', (req, res) => {
-  users = req.body.users;
-  console.log('Array de usuários atualizado:', users);
-  res.status(200).send('Array de usuários atualizado com sucesso');
+app.get('/users', (req, res) => {
+  return res.status(200).json(syncedUsers);
 });
 
 app.listen(port, () => {
-  console.log(`Servidor de obtenção de usuários rodando em http://localhost:${port}`);
+  console.log(`Microserviço de Obtenção de Usuários rodando em http://localhost:${port}`);
 });
